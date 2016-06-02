@@ -1,0 +1,169 @@
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.*;
+import java.awt.*;
+
+public class GUI extends JFrame 
+{
+	private JButton one, two, three, four, five, six, seven, eight, nine, zero;
+	private JButton period;
+	private JLabel total;
+	// Declare a panel for displaying message
+
+	/** Main method */
+	public static void main(String[] args) 
+	{
+		GUI frame = new GUI();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.pack();
+		frame.setLocationRelativeTo(null); // Center the frame
+		frame.setVisible(true);
+	}
+
+	/** Default constructor */
+	public GUI() 
+	{
+		setTitle("Calculator");
+		setResizable(false);
+	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Design the gui layout using Panel containers
+		JPanel buttonPanel = new JPanel(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
+		
+		one = new JButton("1");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
+		buttonPanel.add(one, c);
+		
+		two = new JButton("2");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 0;
+		buttonPanel.add(two, c);
+		
+		three = new JButton("3");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 0;
+		buttonPanel.add(three, c);
+		
+		four = new JButton("4");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 1;
+		buttonPanel.add(four, c);
+		
+		five = new JButton("5");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 1;
+		buttonPanel.add(five, c);
+		
+		six = new JButton("6");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 1;
+		buttonPanel.add(six, c);
+		
+		seven = new JButton("7");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 2;
+		buttonPanel.add(seven, c);
+		
+		eight = new JButton("8");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 2;
+		buttonPanel.add(eight, c);
+		
+		nine = new JButton("9");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 2;
+		buttonPanel.add(nine, c);
+		
+		zero = new JButton("0");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridwidth = 2;
+		c.gridx = 0;
+		c.gridy = 3;
+		buttonPanel.add(zero, c);
+		
+		period = new JButton(".");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 3;
+		buttonPanel.add(period, c);
+		
+		JPanel display = new JPanel(new BorderLayout());
+		total = new JLabel();
+		total.setHorizontalAlignment(SwingConstants.RIGHT);
+		total.setText("0");
+		display.add(total);
+		
+		Container contentpane = this.getContentPane();
+		contentpane.add(display, BorderLayout.NORTH);
+		contentpane.add(buttonPanel, BorderLayout.SOUTH);
+	}
+
+	//Create the class Listener that implements ItemListener
+
+	class Listener implements ItemListener 
+	{
+		/** Handle check box selection */
+		public void itemStateChanged(ItemEvent e)
+		{
+			if (e.getSource() == one)
+			{
+				fontName = (String)(jcboFontName.getSelectedItem());
+			
+				// Set font for the message
+				messagePanel.setFont(new Font(fontName, fontStyle, fontSize));
+			}
+//			else if (e.getSource() == jcboFontSize) 
+//			{
+//				fontSize = (Integer)(jcboFontSize.getSelectedItem());
+//				
+//				// Set font for the message (Font.ITALIC, Font.BOLD, or FONT.PLAIN)
+//				messagePanel.setFont(new Font(fontName, fontStyle, fontSize));
+//			}
+//			// Determine a font style
+//			if(e.getSource() == jchkCentered)
+//			{
+//				if(jchkCentered.isSelected())
+//				{
+//					messagePanel.setXCoordinate(195);
+//				}
+//				else
+//					messagePanel.setXCoordinate(5);
+//				
+//			}
+//			if(e.getSource() == jchkBold)
+//			{
+//				if(jchkBold.isSelected())
+//				{
+//					fontStyle = fontStyle + Font.BOLD;
+//				}
+//				else
+//					fontStyle = fontStyle - Font.BOLD;
+//			}
+//			if(e.getSource() == jchkItalic)
+//			{
+//				if(jchkItalic.isSelected())
+//				{
+//					fontStyle = fontStyle + Font.ITALIC;
+//				}
+//				else
+//					fontStyle = fontStyle - Font.ITALIC;
+				
+				
+			}
+			// Set font for the message
+			
+			
+		}
+	
+	}
